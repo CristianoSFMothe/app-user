@@ -1,13 +1,13 @@
 import {Button} from '@mui/material';
 import {Routes, Route, Navigate} from 'react-router-dom';
-import {useAppThemeContext} from "../shared/contexts";
+import {useAppThemeContext} from '../shared/contexts';
 
 export const AppRoutes = () => {
   const { toggleTheme } = useAppThemeContext();
   
   return (
     <Routes>
-      <Route path="/page-home" element={
+      <Route path='/page-home' element={
         <Button 
           variant='contained' 
           color='primary'
@@ -15,7 +15,7 @@ export const AppRoutes = () => {
         >toggleTheme
         </Button>}/>
 
-      <Route path="*" element={<Navigate to="/page-home"/>}/>
+      <Route path='*' element={<Navigate to='/page-home'/>}/>
     </Routes>
   );
 };
