@@ -12,7 +12,7 @@ export const AppRoutes = () => {
           variant='contained' 
           color='primary'
           onClick={toggleTheme}
-        >toggleTheme
+        >Tema
         </Button>}/>
 
       <Route path='*' element={<Navigate to='/page-home'/>}/>

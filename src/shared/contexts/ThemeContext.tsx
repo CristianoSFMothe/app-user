@@ -15,7 +15,7 @@ const ThemeContext = createContext({} as IThemContextData);
 
 export const useAppThemeContext = () => {
   return useContext(ThemeContext);
-}
+};
 
 export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({children}) => {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('dark');
@@ -27,8 +27,8 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({children}) =
   const theme = useMemo(() => {
     if (themeName === 'dark') return DarkTheme; 
     
-    return LightTheme
-  }, [themeName])
+    return LightTheme;
+  }, [themeName]);
   
   return (
     <ThemeContext.Provider value={{themeName, toggleTheme}}>
@@ -42,5 +42,5 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({children}) =
         </Box>        
       </ThemeProvider>
     </ThemeContext.Provider>
-  )
-}
+  );
+};
