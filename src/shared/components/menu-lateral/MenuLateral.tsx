@@ -7,18 +7,29 @@ import {
   ListItemIcon, 
   useTheme,
   ListItemText,
-  Icon} from '@mui/material';
+  Icon,
+  useMediaQuery} from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import {useDrawerContext} from '../../contexts';
 
 interface IDrawerProviderProps {
   children: React.ReactNode;
 }
 export const MenuLateral: React.FC<IDrawerProviderProps> = ({ children}) => {
   const theme = useTheme();
+  
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  
+  const {isDrawerOpen, toggleDrawerOpen} = useDrawerContext();
+  
   return (
     <>
-      <Drawer variant='permanent'>
+      <Drawer 
+        open={isDrawerOpen} 
+        variant={smDown ? 'temporary' : 'permanent'}
+        onClose={toggleDrawerOpen}
+      >
         <Box 
           width={theme.spacing(28)} 
           display='flex' 
@@ -56,7 +67,7 @@ export const MenuLateral: React.FC<IDrawerProviderProps> = ({ children}) => {
         </Box>        
       </Drawer>
 
-      <Box height='100vh' marginLeft={theme.spacing(28)}>
+      <Box height='100vh' marginLeft={smDown ? 0 : theme.spacing(28)}>
         {children}
       </Box>
       
