@@ -11,8 +11,9 @@ import {
   useMediaQuery} from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import {useDrawerContext} from '../../contexts';
+import {useAppThemeContext, useDrawerContext} from '../../contexts';
 import {useMatch, useNavigate, useResolvedPath} from 'react-router-dom';
+import DarkMode from '@mui/icons-material/DarkMode';
 
 interface IDrawerProviderProps {
   children: React.ReactNode;
@@ -54,6 +55,8 @@ export const MenuLateral: React.FC<IDrawerProviderProps> = ({ children}) => {
   
   const {isDrawerOpen, toggleDrawerOpen, drawerOptions} = useDrawerContext();
   
+  const { toggleTheme } = useAppThemeContext();
+  
   return (
     <>
       <Drawer         
@@ -92,10 +95,18 @@ export const MenuLateral: React.FC<IDrawerProviderProps> = ({ children}) => {
                   label={drawerOptions.label}
                   onClick={smDown ? toggleDrawerOpen : undefined}
                 />
-              ))}
-              
-            </List>
-            
+              ))}              
+            </List>            
+          </Box>
+          <Box id='themeButton'>
+            <List id='alterTheme' component='nav'>
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <DarkMode />
+                </ListItemIcon>
+                <ListItemText primary='Alternar tema' />
+              </ListItemButton>           
+            </List>            
           </Box>
           
         </Box>        
