@@ -1,10 +1,15 @@
 import {LayoutBasePagina} from '../../shared/layout';
+import {Toolbar} from '../../shared/components';
 
 export const Dasboard = () => {
   return (
     <LayoutBasePagina
       title='Página inicial'
-      toolbar={<>Barra de Ferramentas</>}
+      toolbar={(
+        <Toolbar 
+          showInputSearch
+        />
+      )}
     >
       Testando
     </LayoutBasePagina>
