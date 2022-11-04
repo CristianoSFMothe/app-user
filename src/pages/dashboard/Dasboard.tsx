@@ -6,7 +6,7 @@ export const Dasboard = () => {
     <LayoutBasePagina
       title='Página inicial'
       toolbar={(
-        <ToolsDetails />
+        <ToolsDetails viewBtnSaveAndClose viewBtnSaveAndCloseLoading />
       )}
     >
       Testando
